@@ -14,7 +14,7 @@ import { ConversionHistoryComponent } from './components/conversion-history/conv
     FormsModule,
     ConversionFormComponent,
     ConversionHistoryComponent,
-  ], // Add the standalone components here
+  ],
 })
 export class AppComponent {
   conversionHistory: any[] = [];

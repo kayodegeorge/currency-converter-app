@@ -113,7 +113,7 @@ export class ConversionFormComponent {
     );
   }
   addConversionToHistory(conversion: any) {
-    this.conversionHistory.unshift(conversion); // Add to the beginning of the array
+    this.conversionHistory.unshift(conversion);
     if (this.conversionHistory.length > 3) {
       this.conversionHistory.pop(); // Remove the oldest conversion if more than 3
     }
