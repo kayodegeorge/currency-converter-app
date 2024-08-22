@@ -1,3 +1,12 @@
-<ion-app>
-  <ion-router-outlet></ion-router-outlet>
-</ion-app>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Currency Converter App</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h1>Kayodes currencies</h1>
+  <!-- <p>Conversion History: {{ conversionHistory.length }} entries</p> -->
+  <app-conversion-form (conversion)="addConversion($event)"></app-conversion-form>
+  <app-conversion-history [histories]="conversionHistory"></app-conversion-history>
+</ion-content>

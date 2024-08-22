@@ -1,0 +1,40 @@
+<form (ngSubmit)="convertCurrency()">
+  <ion-item>
+    <ion-label>From:</ion-label>
+    <ion-input [(ngModel)]="fromCurrency" name="fromCurrency"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>To:</ion-label>
+    <ion-input [(ngModel)]="toCurrency" name="toCurrency"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Amount:</ion-label>
+    <ion-input [(ngModel)]="amount" name="amount" type="number"></ion-input>
+  </ion-item>
+  <ion-button expand="full" type="submit">Convert</ion-button>
+</form>
+
+<ion-list *ngIf="conversionResults">
+  <ion-item>
+    <ion-label>
+      <strong>Conversion Results:</strong>
+    </ion-label>
+  </ion-item>
+
+  <ion-item *ngFor="let currency of conversionResults | keyvalue">
+    <ion-label>
+      {{ currency.key }}: {{ currency.value | number:'1.2-4' }}
+    </ion-label>
+  </ion-item>
+  
+  
+</ion-list>
+
+<div *ngIf="conversionHistory.length > 0">
+  <h2>Last 3 Conversions:</h2>
+  <ion-list>
+    <ion-item *ngFor="let conversion of conversionHistory">
+      {{ conversion.amount }} {{ conversion.fromCurrency }} to {{ conversion.toCurrency }}: {{ conversion.result[conversion.toCurrency] | number:'1.2-4' }}
+    </ion-item>
+  </ion-list>
+</div>
